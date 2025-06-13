@@ -93,4 +93,4 @@ for f in frames:
     writer.write(f)
 writer.close()
 
-print("✅ Video successfully saved to:", output_file)
+print(" Video successfully saved to:", output_file)
