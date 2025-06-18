@@ -1,0 +1,125 @@
+/* Apply gradient background to full page */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #08BCD0, #B0DCC6); /* Blue to light green */
+  }
+  
+  /* Center the container on the screen */
+  .signup-container {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom, #00c9ff, #92fe9d);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 40px;
+  }
+  
+  /* Left side with image and text */
+  .signup-left {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .signup-left img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .signup-left p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Right side with form */
+  .signin-right {
+    flex: 1;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .signin-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .signin-subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .signin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .signin-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .signin-form input:focus {
+    border-color: #4acfd9;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  
+  .forgot-password a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 13px;
+  }
+  
+  .signin-button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .signin-button:hover {
+    background-color: #333;
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .register-link a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+  }

@@ -1,0 +1,111 @@
+.signup-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(180deg, #08BCD0, #B0DCC6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signup-left, .signup-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.signup-left img {
+  margin-top: 100px;
+  max-width: 80%;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.signup-left p {
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 80%;
+}
+
+.signup-right h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.form-container {
+  margin-bottom: 125px;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-container p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-container button[type='submit'] {
+  width: 100%;
+  padding: 0.75rem;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin: 0 1rem;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.facebook-signin {
+  display: none;
+}
+
+
+.login-link {
+  font-size: 0.9rem;
+  text-align: center;
+}

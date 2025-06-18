@@ -1,0 +1,25 @@
+.google-signin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 15px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .google-signin-button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .google-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
