@@ -22,9 +22,10 @@
 }
 
 .concepts-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 20px;
   margin-bottom: 60px;
 }

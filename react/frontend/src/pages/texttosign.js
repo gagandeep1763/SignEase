@@ -281,8 +281,8 @@ function TextToSign() {
       }
     }
     
-    // Remove duplicates while preserving order
-    return [...new Set(words)];
+    // Keep all words, including duplicates
+    return words;
   };
 
   const findMatchingVideo = (phrase) => {
@@ -377,11 +377,8 @@ function TextToSign() {
     // Find videos for each word/phrase
     words.forEach(word => {
       const match = findMatchingVideo(word);
-      if (match) {
-        // Avoid duplicate videos
-        if (!videos.some(v => v.url === match.url)) {
-          videos.push(match);
-        }
+      if (match) {  
+        videos.push(match);
       } else {
         notFound.push(word);
       }
@@ -415,8 +412,8 @@ function TextToSign() {
           <Link to="/sign-concepts" className={location.pathname === "/sign-concepts" ? "active" : ""}>Sign Concepts</Link>
           <Link to="/key-points" className={location.pathname === "/key-points" ? "active" : ""}>Key Points</Link>
           <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact us</Link>
-          <button className="logout-button" onClick={() => navigate('/')}>LOG OUT</button>
         </nav>
+        <button className="logout-btn" onClick={() => navigate('/')}>LOG OUT</button>
       </header>
 
       <button className="back-button" onClick={() => navigate('/sign-concepts')}>BACK</button>

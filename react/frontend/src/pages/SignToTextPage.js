@@ -1,8 +1,8 @@
 import React from 'react';
-import SignToText from '../components/SignToText';
+import Sign2Text from '../components/sign2text';
 
 const SignToTextPage = () => {
-  return <SignToText />;
+  return <Sign2Text />;
 };
 
 export default SignToTextPage; 

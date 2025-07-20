@@ -8,7 +8,6 @@ import TermsAndConditions from './components/TermsAndConditionsModal';
 import KeyPointsPage from "./pages/KeyPointsPage";
 import LearnSignPage from "./pages/learnsignpage.js";
 import TextToSign from './pages/texttosign.js';
-import ImageToText from './pages/ImageToText.js';
 import SignToTextPage from './pages/SignToTextPage';
 
 import { AuthProvider } from './context/AuthContext';
@@ -27,7 +26,6 @@ function App() {
           <Route path="/key-points" element={<KeyPointsPage />} />
           <Route path="/learn-sign" element={<LearnSignPage />} />
           <Route path="/text-to-sign" element={<TextToSign />} />
-          <Route path="/image-to-text" element={<ImageToText />} />
           <Route path="/sign-to-text" element={<SignToTextPage />} />
         </Routes>
       </AuthProvider>

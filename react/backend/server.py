@@ -7,30 +7,39 @@ import numpy as np
 import joblib
 import cv2
 import mediapipe as mp
-from googletrans import Translator
+import os
+import openai
 
 app = Flask(__name__)
 CORS(app)
 
 # Load model and scaler
-model = joblib.load("D:/DGM/Dhanush/Major_Project/Completed_final_project/SignEase/react/backend/gesture_model.pkl")
-scaler = joblib.load("D:/DGM/Dhanush/Major_Project/Completed_final_project/SignEase/react/backend/gesture_scaler.pkl")
+model = joblib.load("gesture_model.pkl")
+scaler = joblib.load("gesture_scaler.pkl")
 
 # Initialize MediaPipe
 mp_hands = mp.solutions.hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
 
-# Translator
-translator = Translator()
 
 @app.route("/api/detect", methods=["POST"])
 def detect():
     try:
         data = request.json
-        img_data = data['image'].split(',')[1]  
+        img_data = data['image'].split(',')[1]  # Remove header like "data:image/jpeg;base64,..."
         img = Image.open(io.BytesIO(base64.b64decode(img_data)))
         frame = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        print("Frame shape:", frame.shape)
 
         result = mp_hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+        print("Mediapipe result:", result.multi_hand_landmarks)
+        if result.multi_hand_landmarks:
+            print("Number of hands detected:", len(result.multi_hand_landmarks))
+            for hand_landmarks in result.multi_hand_landmarks:
+                landmarks = [coord for lm in hand_landmarks.landmark for coord in (lm.x, lm.y, lm.z)]
+                print("Landmarks length:", len(landmarks))
+                print("Landmarks values:", landmarks)
+        else:
+            print("No hand detected by Mediapipe.")
 
         if result.multi_hand_landmarks:
             for hand_landmarks in result.multi_hand_landmarks:
@@ -47,18 +56,22 @@ def detect():
         return jsonify({ "error": str(e) })
 
 
-@app.route("/api/translate", methods=["POST"])
-def translate():
+@app.route("/api/correct", methods=["POST"])
+def correct():
     try:
         data = request.json
-        text = data['text']
-        target_lang = data['targetLang']
-
-        translated = translator.translate(text, dest=target_lang)
-        return jsonify({ "translatedText": translated.text })
-
+        sentence = data['sentence']
+        prompt = f"Remove all repeated words or phrases from this sentence, keeping only the first occurrence of each, and correct the sentence: {sentence}"
+        openai.api_key = os.environ.get('OPENAI_API_KEY')
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=100
+        )
+        corrected = response['choices'][0]['message']['content'].strip()
+        return jsonify({'corrected': corrected})
     except Exception as e:
-        return jsonify({ "error": str(e) })
+        return jsonify({'error': str(e)})
 
 
 if __name__ == "__main__":

@@ -3,7 +3,6 @@ import '../styles/SignConcepts.css';
 import logoImg from '../assets/logo.jpg';
 import text2SignImg from '../assets/TEXT2SIGN.jpg';
 import sign2TextImg from '../assets/SIGN2TEXT.jpg';
-import image2TextImg from '../assets/IMAGE2TEXT.jpg';
 import learnSignImg from '../assets/LEARNSIGNLANGUAGE.jpg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -42,10 +41,6 @@ const SignConcepts = () => {
 
           <Link to="/sign-to-text" className="concept-card">
             <img src={sign2TextImg} alt="Sign to Text" className="concept-image" />
-          </Link>
-
-          <Link to="/image-to-text" className="concept-card">
-            <img src={image2TextImg} alt="Image to Text" className="concept-image" />
           </Link>
 
           <Link to="/learn-sign" className="concept-card">
