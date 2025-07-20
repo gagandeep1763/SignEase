@@ -28,18 +28,8 @@ def detect():
         img_data = data['image'].split(',')[1]  # Remove header like "data:image/jpeg;base64,..."
         img = Image.open(io.BytesIO(base64.b64decode(img_data)))
         frame = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-        print("Frame shape:", frame.shape)
 
         result = mp_hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        print("Mediapipe result:", result.multi_hand_landmarks)
-        if result.multi_hand_landmarks:
-            print("Number of hands detected:", len(result.multi_hand_landmarks))
-            for hand_landmarks in result.multi_hand_landmarks:
-                landmarks = [coord for lm in hand_landmarks.landmark for coord in (lm.x, lm.y, lm.z)]
-                print("Landmarks length:", len(landmarks))
-                print("Landmarks values:", landmarks)
-        else:
-            print("No hand detected by Mediapipe.")
 
         if result.multi_hand_landmarks:
             for hand_landmarks in result.multi_hand_landmarks:

@@ -87,8 +87,6 @@ const SignToText = () => {
                 audio={false}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
-                width={640}
-                height={480}
                 style={{ width: '100%', height: '100%', borderRadius: '10px', objectFit: 'cover' }}
               />
             ) : (
