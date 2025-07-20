@@ -1,1 +1,8 @@
- 
+flask
+flask-cors
+pillow
+numpy
+joblib
+opencv-python
+mediapipe
+openai 
