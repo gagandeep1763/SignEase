@@ -24,18 +24,20 @@ const SignToText = () => {
     Malayalam: 'ml'
   };
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const startDetection = async () => {
     if (!cameraOn || !webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
     if (!imageSrc) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/detect', { image: imageSrc });
+      const response = await axios.post(`${apiUrl}/api/detect`, { image: imageSrc });
       const { detectedText } = response.data;
       setTextOutput(detectedText);
 
       if (language !== 'en') {
-        const translateResponse = await axios.post('http://localhost:5000/api/translate', {
+        const translateResponse = await axios.post(`${apiUrl}/api/translate`, {
           text: detectedText,
           targetLang: language
         });
