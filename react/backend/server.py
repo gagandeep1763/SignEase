@@ -14,8 +14,15 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model and scaler
-model = joblib.load("gesture_model.pkl")
-scaler = joblib.load("gesture_scaler.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "gesture_model.pkl")
+scaler_path = os.path.join(BASE_DIR, "gesture_scaler.pkl")
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file not found: {model_path}")
+if not os.path.exists(scaler_path):
+    raise FileNotFoundError(f"Scaler file not found: {scaler_path}")
+model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 # Initialize MediaPipe
 mp_hands = mp.solutions.hands.Hands(min_detection_confidence=0.7, min_tracking_confidence=0.7)
@@ -65,4 +72,4 @@ def correct():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=False)

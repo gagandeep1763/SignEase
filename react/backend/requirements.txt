@@ -6,3 +6,4 @@ joblib
 opencv-python
 mediapipe
 openai 
+scikit-learn
