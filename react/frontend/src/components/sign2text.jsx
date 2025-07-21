@@ -31,13 +31,15 @@ const SignToText = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const startDetection = async () => {
     if (!cameraOn || !webcamRef.current) return;
     const imageSrc = webcamRef.current.getScreenshot();
     if (!imageSrc) return;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/detect', { image: imageSrc });
+      const response = await axios.post(`${apiUrl}/api/detect`, { image: imageSrc });
       const { detectedText } = response.data;
       setCurrentSign(detectedText);
     } catch (error) {
@@ -134,16 +136,12 @@ const SignToText = () => {
       interval = setInterval(startDetection, 2000);
     }
     return () => clearInterval(interval);
-  }, [cameraOn]);
+  }, [cameraOn, startDetection]);
 
   const handleSave = () => {
     if (currentSign && currentSign !== 'Detection failed' && currentSign !== 'No hand detected') {
       setSentence((prev) => prev + ' ' + currentSign);
     }
-  };
-
-  const handleSpace = () => {
-    setSentence((prev) => prev + ' ');
   };
 
   const handleClear = () => {
