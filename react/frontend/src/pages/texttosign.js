@@ -70,7 +70,7 @@ function TextToSign() {
         
         rows.forEach(row => {
           if (!row.trim()) return;
-          const [path, words, glosses] = row.split(',');
+          const [path, spoken, signed, start, end, words, glosses] = row.split(',');
           if (path && words && words.toLowerCase() !== 'nan') {
             const normalizedWord = words.toLowerCase().trim();
             wordToVideo[normalizedWord] = path.trim();
