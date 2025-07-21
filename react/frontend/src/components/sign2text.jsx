@@ -331,7 +331,7 @@ const SignToText = () => {
           <li>Try to avoid fast or abrupt hand movements.</li>
           <li>Use the "Correct" button to fix or improve the detected sentence before translating.</li>
           <li>You can translate the corrected sentence into multiple languages using the dropdown.</li>
-          <li>If the camera is not detected, check your browser permissions or use an external webcam app like DroidCam.</li>
+          <li>If the camera is not detected, check your browser permissions and ensure your normal webcam is connected and selected. Most built-in or USB webcams are supported.</li>
         </ul>
       </div>
     </div>
