@@ -1,41 +1,83 @@
-# Indian Sign Language (ISL) Lexicon
+# SignEase ✋🤟
 
-This directory contains the Indian Sign Language (ISL) lexicon for use with the spoken-to-signed translation system.
+A full-stack web platform that bridges the communication gap using Indian Sign Language (ISL). SignEase supports **Text-to-Sign**, **Sign-to-Text**, and a **Learn Sign Language** module — all integrated with Google Authentication and a smooth UI.
 
-## Structure
+---
 
-```
-ISL_lexicon/
-├── index.csv           # Main mapping file
-├── README.md          # This documentation
-└── ins/               # Directory for ISL pose files ('ins' is the ISO code for Indian Sign Language)
-    ├── hello.pose     # Individual pose files for each sign
-    ├── namaste.pose
-    └── thank_you.pose
-```
+## 🔗 Live Demo
+*([Add your deployed URL here if available](https://sign-ease-dhanush-g-ms-projects.vercel.app/))*
 
-## Index File Format
+---
 
-The `index.csv` file contains the following columns:
-- `path`: Relative path to the pose file
-- `spoken_language`: Language code for the spoken language (en=English, hi=Hindi)
-- `signed_language`: Language code for sign language (ins=Indian Sign Language)
-- `start`: Start time in the pose sequence
-- `end`: End time in the pose sequence
-- `words`: The word(s) in the spoken language
-- `glosses`: The gloss representation of the sign
-- `priority`: Priority level for the sign (0 is default)
+## 🚀 Features
 
-## Adding New Signs
+### 1. Text to Sign Language (Text-to-Sign)
+- Collected ISL videos and extracted human pose keypoints.
+- Converted `.pose` files to animated `.mp4` sign videos.
+- Covered **1500+ commonly used words** with **all tenses and synonyms**.
+- Accepts full sentences or individual words and plays an animated **sign video sequence** accordingly.
 
-To add a new sign:
-1. Create a video recording of the sign
-2. Convert the video to pose format using video_to_pose tool
-3. Add the pose file to the ins/ directory
-4. Add an entry to index.csv
+### 2. Sign to Text Language (Sign-to-Text)
+- Created a custom dataset for **45 commonly used signs**.
+- Trained a **Random Forest** model to detect signs via camera.
+- Real-time sign recognition through frontend webcam interface.
+- Click **"Save"** to append detected signs into a forming sentence.
+- Deduplication logic: e.g., `"I love love love you"` → `"I love you"`.
+- Translates the final sign sequence into readable text.
 
-## Supported Languages
+### 3. Learn Sign Language
+- Visual learning tool for **numbers** and **alphabets** in sign language.
+- Click any letter or number to view its animated sign.
+- Ideal for beginners looking to learn ISL basics interactively.
 
-Currently supports:
-- English (en) → ISL (ins)
-- Hindi (hi) → ISL (ins) 
+---
+
+## 🔐 Authentication
+- **Google Login** integrated using Firebase Authentication.
+- Secure user flow with Terms & Conditions and session management.
+
+---
+
+## 📁 Tech Stack
+
+| Frontend      | Backend        | ML/AI         | Auth & DB     |
+|---------------|----------------|---------------|----------------|
+| React.js      | Node.js        | MediaPipe, RF | Firebase       |
+| HTML, CSS     | Express.js     | OpenCV        | Firestore DB   |
+
+---
+
+## 📸 Screenshots
+*(Add relevant screenshots or screen recordings of your app here.)*
+
+---
+
+## 🛠️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/gagandeep1763/SignEase.git
+   cd SignEase
+2. Install dependencies:
+   ```bash
+   npm install
+3. Run the app locally:
+    ```bash
+    npm start
+4. For ML model training and pose generation:
+   Refer to the pose-processing/ and ml-model/ folders for scripts and notebooks.
+
+Contributions: 
+Contributions, issues, and feature requests are welcome! Feel free to check the Issues section.
+
+📜 License: 
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+🙌 Acknowledgements
+Thanks to:
+
+ISL Dictionary Dataset for video resources
+
+Teammates: Dhanush, Aryan, Jayanth
+
+Our Guide: @Nandita Ma'am for her support and mentorship
