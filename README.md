@@ -81,3 +81,9 @@ ISL Dictionary Dataset for video resources
 Teammates: Dhanush, Aryan, Jayanth
 
 Our Guide: @Nandita Ma'am for her support and mentorship
+
+**Developed By:**  
+Gagandeep D  
+Google Certified UI/UX Designer  & 
+Aspiring Data Analyst
+
