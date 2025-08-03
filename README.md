@@ -5,7 +5,7 @@ A full-stack web platform that bridges the communication gap using Indian Sign L
 ---
 
 ## 🔗 Live Demo
-*([Add your deployed URL here if available](https://sign-ease-dhanush-g-ms-projects.vercel.app/))*
+*([View my project](https://sign-ease-dhanush-g-ms-projects.vercel.app/))*
 
 ---
 
