@@ -65,17 +65,12 @@ A full-stack web platform that bridges the communication gap using Indian Sign L
 Contributions: 
 Contributions, issues, and feature requests are welcome! Feel free to check the Issues section.
 
-📜 License: 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
 🙌 Acknowledgements
 Thanks to:
 
 ISL Dictionary Dataset for video resources
 
 Teammates: Dhanush, Aryan, Jayanth
-
-Our Guide: @Nandita Ma'am for her support and mentorship
 
 **Developed By:**  
 Gagandeep D  
